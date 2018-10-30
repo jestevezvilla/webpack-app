@@ -1,38 +1,38 @@
-const webpack = require("webpack");
-const path = require("path");
+// const webpack = require('webpack');
+const path = require('path');
 
 const config = {
-  entry: "./src/index.js",
+  entry: ['@babel/polyfill', './src/index.js'],
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js"
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: "babel-loader",
-        exclude: /node_modules/
+        use: 'babel-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
         use: [
-          "style-loader",
+          'style-loader',
           {
-            loader: "css-loader",
-            options: { modules: true, importLoaders: 1 }
+            loader: 'css-loader',
+            options: { modules: true, importLoaders: 1 },
           },
-          "postcss-loader"
-        ]
-      }
-    ]
+          'postcss-loader',
+        ],
+      },
+    ],
   },
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: ['.js', '.jsx'],
   },
   devServer: {
-    contentBase: "./dist"
-  }
+    contentBase: './dist',
+  },
 };
 
 module.exports = config;
