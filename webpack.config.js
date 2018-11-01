@@ -1,4 +1,4 @@
-// const webpack = require('webpack');
+const webpack = require('webpack');
 const path = require('path');
 
 const config = {
@@ -25,6 +25,14 @@ const config = {
           'postcss-loader',
         ],
       },
+      {
+        test: /\.(jpe?g|png|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'assets/images/',
+        },
+      },
     ],
   },
   resolve: {
@@ -33,6 +41,14 @@ const config = {
   devServer: {
     contentBase: './dist',
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': "jquery'",
+      'window.$': 'jquery',
+    }),
+  ],
 };
 
 module.exports = config;
