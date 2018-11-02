@@ -1,3 +1,7 @@
+@import "../postcss/constants.css";
+
 .list {
-  display: inline;
+  color: var(--color-primary);
+  display: grid;
+  user-select: none;
 }

@@ -1,11 +1,15 @@
 const webpack = require('webpack');
 const path = require('path');
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const pkg = require('./package');
+
 const config = {
   entry: ['@babel/polyfill', './src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: `assets/js/${pkg.name}${pkg.version}.js`,
   },
   module: {
     rules: [
@@ -17,21 +21,22 @@ const config = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { modules: true, importLoaders: 1 },
+            options: {
+              camelCase: true,
+              importLoaders: 1,
+              localIdentName: '[name]__[local]___[hash:base64:5]',
+              modules: true,
+            },
           },
           'postcss-loader',
         ],
       },
       {
-        test: /\.(jpe?g|png|gif)$/i,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-          outputPath: 'assets/images/',
-        },
+        test: /\.font\.js/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'webfonts-loader'],
       },
     ],
   },
@@ -47,6 +52,9 @@ const config = {
       jQuery: 'jquery',
       'window.jQuery': "jquery'",
       'window.$': 'jquery',
+    }),
+    new MiniCssExtractPlugin({
+      filename: `assets/css/${pkg.name}${pkg.version}.css`,
     }),
   ],
 };

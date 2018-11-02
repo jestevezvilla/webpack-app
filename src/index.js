@@ -1,3 +1,4 @@
+import './icon.font';
 import 'webpack-jquery-ui/datepicker';
 
 const Pages = {
