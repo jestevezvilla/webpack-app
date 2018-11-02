@@ -4,4 +4,8 @@
   color: var(--color-primary);
   display: grid;
   user-select: none;
+
+  input {
+    border: 1px solid red;
+  }
 }
