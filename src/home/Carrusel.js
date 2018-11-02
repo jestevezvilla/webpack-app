@@ -10,6 +10,8 @@ const Wrapper = (selector) => {
   const Carrusel = (props) => {
     const { values } = props;
 
+    fetch('https://swapi.co/api/planets/1/').then(result => console.log(result));
+
     return values.map(value => (
       <li className={styles.list} key={value}>
         A{value}

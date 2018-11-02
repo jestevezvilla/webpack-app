@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const pkg = require('./package');
 
 const config = {
-  entry: ['@babel/polyfill', './src/index.js'],
+  entry: ['whatwg-fetch', '@babel/polyfill', './src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: `assets/js/${pkg.name}${pkg.version}.js`,
