@@ -1,13 +1,18 @@
-import React from "react";
-import { render } from "react-dom";
+import React, { Fragment } from 'react';
+import { render } from 'react-dom';
 
-import { getProps } from "../utils";
-import styles from "./styles.css";
+import getProps from '../utils';
+import styles from './styles.css';
 
-const Wrapper = selector => {
-  const Card = props => {
+const Wrapper = (selector) => {
+  const Card = (props) => {
     const { description } = props;
-    return <p className={styles.cars}>{description}</p>;
+    return (
+      <Fragment>
+        <p className={styles.cars}>{description}</p>
+        {props.children}
+      </Fragment>
+    );
   };
 
   render(<Card {...getProps(selector)} />, document.querySelector(selector));

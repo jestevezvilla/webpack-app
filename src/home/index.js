@@ -1,3 +1,3 @@
-import Carrusel from './Carrusel';
+import Item from './Item';
 
-export const render = () => Carrusel('#home ul');
+export const render = () => Item('#home ul li');
