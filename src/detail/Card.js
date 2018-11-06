@@ -9,7 +9,7 @@ const Wrapper = (selector) => {
     const { description } = props;
     return (
       <Fragment>
-        <p className={styles.cars}>{description}</p>
+        <p className={styles.card}>{description}</p>
         {props.children}
       </Fragment>
     );

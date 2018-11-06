@@ -1,11 +1,7 @@
 @import "../postcss/constants.css";
 
 .list {
-  color: var(--color-primary);
   display: grid;
   user-select: none;
-
-  input {
-    border: 1px solid red;
-  }
+  transition: all 1s;
 }
