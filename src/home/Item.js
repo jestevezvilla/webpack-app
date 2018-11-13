@@ -9,7 +9,7 @@ const init = () => $('input[id*=datepicker]').datepicker();
 const Wrapper = (selector) => {
   const Item = (props) => {
     const { value } = props;
-    fetch('https://swapi.co/api/planets/1/').then(result => console.log(result));
+    // fetch('https://swapi.co/api/planets/1/').then(result => console.log(result));
 
     return (
       <Fragment>
