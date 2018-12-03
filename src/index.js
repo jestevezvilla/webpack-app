@@ -1,5 +1,4 @@
 import './icon.font';
-import 'webpack-jquery-ui/datepicker';
 
 const Pages = {
   '/': import('./home'),
@@ -7,8 +6,7 @@ const Pages = {
   '/detail.html': import('./detail'),
 };
 
-const renderPage = () => Pages[window.location.pathname].then((result) => {
-  result.render();
-});
-
-renderPage();
+(async () => {
+  const module = await Pages[window.location.pathname];
+  module.default();
+})();

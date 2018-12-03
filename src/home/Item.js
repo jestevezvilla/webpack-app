@@ -1,23 +1,26 @@
 import React, { Fragment } from 'react';
 import { render } from 'react-dom';
+import PropTypes from 'prop-types';
 
 import getProps from '../utils';
 import styles from './styles.css';
 
-const init = () => $('input[id*=datepicker]').datepicker();
+const init = () => console.log('post');
 
 const Wrapper = (selector) => {
   const Item = (props) => {
     const { value } = props;
-    // fetch('https://swapi.co/api/planets/1/').then(result => console.log(result));
-
     return (
       <Fragment>
         <span className={styles.list}>A{value}</span>
-        <input id={`datepicker${value}`} />
         {props.children}
       </Fragment>
     );
+  };
+
+  Item.propTypes = {
+    value: PropTypes.string,
+    children: PropTypes.array,
   };
 
   const elements = document.querySelectorAll(selector);

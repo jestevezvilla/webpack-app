@@ -1,3 +1,5 @@
-import Card from "./Card";
+import Card from './Card';
 
-export const render = () => Card("#detail > div");
+const render = () => Card('#detail > div');
+
+export default render;
