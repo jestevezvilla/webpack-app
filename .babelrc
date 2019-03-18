@@ -3,13 +3,14 @@
     [
       "@babel/preset-env",
       {
+        "debug": true,
         "targets": {
-          "browsers": ["ie >= 10"]
+          "browsers": [
+            "ie >= 10"
+          ]
         },
-        "useBuiltIns": "entry"
+        "useBuiltIns": "usage"
       }
     ],
-    "@babel/preset-react"
   ],
-  "plugins": ["react-hot-loader/babel", "@babel/plugin-syntax-dynamic-import"]
 }

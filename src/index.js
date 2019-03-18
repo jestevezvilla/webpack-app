@@ -1,12 +1,18 @@
-import './icon.font';
+const a = { a: 1, b: 2 };
 
-const Pages = {
-  '/': import('./home'),
-  '/index.html': import('./home'),
-  '/detail.html': import('./detail'),
-};
+const b = { ...a, c: 3 };
 
-(async () => {
-  const module = await Pages[window.location.pathname];
-  module.default();
-})();
+const promise1 = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    resolve('foo');
+  }, 300);
+});
+
+promise1.then(function (value) {
+  console.log(value);
+  // expected output: "foo"
+});
+
+console.log(promise1);
+
+console.log(b);
