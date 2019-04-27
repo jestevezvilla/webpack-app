@@ -13,6 +13,17 @@ promise1.then(function (value) {
   // expected output: "foo"
 });
 
-console.log(promise1);
 
-console.log(b);
+const asyncPrueba = async () => {
+
+  const fetching = await fetch('https://swapi.co/api/people/1');
+  const data = await fetching.json();
+  const result = JSON.stringify(data);
+  return result;
+
+};
+
+const consoleContext = (result) => console.log(result)
+
+asyncPrueba()
+  .then(consoleContext);
